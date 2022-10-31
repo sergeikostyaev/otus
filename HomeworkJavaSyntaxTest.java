@@ -4,6 +4,7 @@ package otus;
 import java.util.Scanner;
 
 public class HomeworkJavaSyntaxTest {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -20,7 +21,11 @@ public class HomeworkJavaSyntaxTest {
                 System.out.println(testInfo[i][j]);
             }
             System.out.println();
-            String res = sc.nextLine();
+            String res;
+            do {
+                System.out.println("Введите вариант ответа от 1 до 4");
+                 res = sc.nextLine();
+            }while(Integer.parseInt(res) < 1 || Integer.parseInt(res) > 4);
             if (res.equals(testInfo[i][5])) {
                 System.out.println("Правильно");
                 right++;
@@ -30,7 +35,7 @@ public class HomeworkJavaSyntaxTest {
             }
             System.out.println();
         }
-        System.out.println(String.format("Результат: правильно %d, неправильно %d", right, mist));
+        System.out.printf("Результат: правильно %d, неправильно %d%n", right, mist);
 
 
     }
