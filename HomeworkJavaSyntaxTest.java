@@ -1,10 +1,6 @@
 package otus;
-
-
 import java.util.Scanner;
-
 public class HomeworkJavaSyntaxTest {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int res = 0;
@@ -38,11 +34,12 @@ public class HomeworkJavaSyntaxTest {
             } while (sc.hasNext()); // условие стало меньше
 
             if (res == keys[i] - 1) {
+                System.out.println("Правильно");
                 right++;
             } else {
+                System.out.println("Неправильно");
                 mist++;
             }
-
         }
         System.out.printf("Результат: правильно %d, неправильно %d%n", right, mist);
     }
