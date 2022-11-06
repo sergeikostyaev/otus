@@ -1,4 +1,4 @@
-package otus.homework4;
+package otus.homeworkTestOOP;
 
 import java.util.Scanner;
 

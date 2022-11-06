@@ -1,4 +1,4 @@
-package otus.homework4;
+package otus.homeworkTestOOP;
 
 public class TestBlock {
     private final String question;

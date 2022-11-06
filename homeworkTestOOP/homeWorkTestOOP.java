@@ -1,9 +1,9 @@
-package otus.homework4;
+package otus.homeworkTestOOP;
 
 
 import java.util.ArrayList;
 
-public class HomeWorkTestOOP {
+public class homeWorkTestOOP {
     private static final String[] questions = {"Сколько планет в солнечной системе?",
             "Как звали отца Александра Сергеевича Пушкина?",
             "Какого цвета Солнце?"};
