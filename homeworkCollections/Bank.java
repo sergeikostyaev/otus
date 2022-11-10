@@ -54,7 +54,6 @@ public class Bank {
         }
     }
 
-
     class Account {
 
         private final Client owner;
