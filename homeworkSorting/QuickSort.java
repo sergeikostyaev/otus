@@ -1,5 +1,6 @@
 package otus.homeworkSorting;
 
+
 public class QuickSort {
     public static void sort(int[] array, int from, int to) {
 
