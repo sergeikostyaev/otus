@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class homeworkSorting {
     public static void main(String[] args) {
 
-        int[] array = new int[10000];
+        int[] array = new int[1000000];
         for (int i = 0; i < array.length; i++) {
             array[i] = (int) (Math.random()*1000);
         }
