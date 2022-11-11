@@ -31,8 +31,9 @@ public class homeworkCollections {
         }
         System.out.println();
 
-        //поиск по счету(Счет выдается случайно)
-        System.out.println(b.findClient(petirList.get(2).getAccountNumber()));
+        try (Scanner sc = new Scanner(System.in)){
+            System.out.println(b.findClient(sc.nextLong()));
+        }
 
 
     }
