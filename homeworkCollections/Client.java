@@ -2,6 +2,7 @@ package otus.homeworkCollections;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Client {
     private String name;
@@ -36,6 +37,6 @@ public class Client {
 
     @Override
     public int hashCode() {
-        return name.hashCode() + age;
+        return Objects.hash(name, age);
     }
 }

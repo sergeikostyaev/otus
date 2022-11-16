@@ -4,32 +4,39 @@ import java.util.*;
 
 public class Bank {
 
-    public final Map<Long, Client> bankAccountsMap = new HashMap<>();
+    private final Map<Account, Client> bankAccountsMap = new HashMap<>();
 
-    private final List<Client> clientsList = new ArrayList<>();
+    private final Map<Client, List<Account>> clientsList = new HashMap<>();
 
-    public void createClient(String name, int age) {
-        clientsList.add(new Client(name, age));
+    public Client createClient(String name, int age) {
+        Client c = new Client(name, age);
+        clientsList.put(c, new ArrayList<Account>());
+        return c;
     }
-
-    public void createClientAccount(Client c) {
+    public Account createClientAccount(Client c) {
         Random r = new Random();
+
         do {
-            Account a = new Account(c, r.nextLong(1000000000));
+            final Account a = new Account(c, r.nextLong(1000000000));
             if (!bankAccountsMap.containsKey(a.getAccountNumber())) {
                 c.addToClientAccountList(a);
-                bankAccountsMap.put(a.getAccountNumber(), c);
-                break;
+                bankAccountsMap.put(a, c);
+                clientsList.compute(c, (k,v) ->{
+                   v.add(a);
+                    return v;
+                });
+                return a;
             }
         } while (true);
+
     }
 
 
-    public String findClientByAccount(Long l) {
+    public String findClientByAccount(Account l) {
         return bankAccountsMap.get(l).getClientName();
     }
 
-    public List<Client> getClientsList() {
+    public Map<Client, List<Account>> getClientsList() {
         return clientsList;
     }
 }
