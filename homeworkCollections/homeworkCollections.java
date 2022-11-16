@@ -24,9 +24,6 @@ public class homeworkCollections {
         mp.get(testClient).forEach((s) -> System.out.println(s.getAccountNumber() + " "));
 
 
-        List<Account> accounts = mp.get(testClient);
-
-
         System.out.println("\nПоиск клиента по номеру счета:");
 
 
