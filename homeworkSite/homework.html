@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица</title>
+    <style>
+table {
+    width: 50%;
+    border: none;
+    margin-bottom: 20px;
+}
+table thead th {
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    background: #d8d8d8;
+    font-size: 14px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+table tbody td {
+    text-align: left;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 10px 15px;
+    font-size: 14px;
+    vertical-align: top;
+}
+table thead tr th:first-child, .table tbody tr td:first-child {
+    border-left: none;
+}
+table thead tr th:last-child, .table tbody tr td:last-child {
+    border-right: none;
+}
+table tbody tr:nth-child(even){
+    background: #f3f3f3;
+}
+    </style>
+
+
+<script>
+        let fullAge = 0;
+        function addFinalText(){
+        const testDiv = document.getElementById("testDiv");
+        const contentBox = document.getElementById("fioBox");
+        const sex = document.getElementById("sexGetter").value;
+        const date = document.getElementById("datePicker").value;
+
+        const p = document.createElement("p");
+        const z = document.createElement("sex");
+        const d = document.createElement("z");
+       
+        p.innerHTML = contentBox.value;
+        z.innerHTML = sex;
+        d.innerHTML = date;
+        var intToPut = getAge(date);
+
+        let studentTab = document.getElementById(studentTable);
+
+        let newRow = studentTable.insertRow(studentTable.rows.length-1);
+        let newCell = newRow.insertCell(-1);
+        newCell.appendChild(document.createTextNode(contentBox.value));
+        
+
+        let newRow2 = studentTable.insertRow(studentTable.rows.length-1);
+        let newCell2 = newRow.insertCell(-1);
+        newCell2.appendChild(document.createTextNode(sex));
+
+        let newRow3 = studentTable.insertRow(studentTable.rows.length-1);
+        let newCell3 = newRow.insertCell(-1);
+        newCell3.appendChild(document.createTextNode(date));
+
+        let newRow4 = studentTable.insertRow(studentTable.rows.length-1);
+        let newCell4 = newRow.insertCell(-1);
+        newCell4.appendChild(document.createTextNode(intToPut));
+
+        fullAge = fullAge+intToPut;
+        var name_input = document.getElementById("avgAgeId");
+        var stolb_bumber = (((studentTable.rows.length-2)/4));
+        name_input.innerText = Math.floor(fullAge/stolb_bumber);
+    }
+
+    function getAge(date){
+        var birthDate = new Date(date);
+        var currentDate = new Date();
+        return Math.floor((currentDate - birthDate)/1000/60/60/24/365);
+    }
+    </script>
+
+</head>
+<body>
+<center>
+    <h1>
+        Домашнее задание<br><br>
+    </h1>
+
+    <div id = "testDiv" class = "test_div_class">
+        <p>
+            test part
+        </p>
+    </div>
+
+    <h3>
+        Форма добавления студентов
+    </h3>
+    <div class = "infoForm" id = "infoFormBlock">
+        <label for="fioBox">ФИО, пол и дата рождения</label>
+        <input id="fioBox" type="text" value = "Петир Паршенко">
+
+        <select id = "sexGetter"> 
+            <option value = "Женский" selected>Женский</option>
+            <option value = "Мужской" selected>Мужской</option>
+        </select>
+        <input type="date" id="datePicker" value="2000-12-12">
+    </div>
+
+    <button onclick = 'addFinalText()'>Добавить студента</button>
+
+    <h3>
+        Таблица студентов
+    </h3>
+    <table class="student_table" id="studentTable" cellpadding="10" border="1">
+        <thead>
+        <tr>
+            <th>Имя студента</th>
+            <th>Пол</th>
+            <th>Дата рождения</th>
+            <th>Возраст</th>
+        </tr>
+        </thead>
+         <tr>
+            <th colspan = 3>Средний возраст:</th>
+            <th class = "avgAge", id = "avgAgeId", colspan = 3>0</th>
+        </tr>
+    </table>
+</center>
+</body>
+</html>
